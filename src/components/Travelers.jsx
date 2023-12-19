@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 // importing destinations images
 import paris from '../assets/paris.jpg'
@@ -9,6 +9,11 @@ import london from '../assets/london.jpg'
 import traveler1 from '../assets/traveler1.jpeg'
 import traveler2 from '../assets/traveler2.jpg'
 import traveler3 from '../assets/traveler3.jpg'
+
+// importing AOS
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+
 
 
 const travelers = [
@@ -42,11 +47,18 @@ const travelers = [
     },
 ]
 
+
+
 const Travelers = () => {
+    // useEffect to set animation duration
+  useEffect(()=>{
+    Aos.init({duration: 2000})
+  }, [])
+
   return (
     <div className='travelers container section'>
         <div className="sectionContainer">
-            <h2>
+            <h2 data-aos='fade-down' data-aos-duration='2500' >
                 Top travelers of this month!
             </h2>
 
@@ -57,7 +69,7 @@ const Travelers = () => {
                     travelers.map(({id, destinationImage, travelerImage, travelerName, socialLink}) => {
                         return (
                             // {/* single passenger card */}
-                            <div key={id} className="singleTraveler">
+                            <div data-aos='fade-up' data-aos-duration='2500' key={id} className="singleTraveler">
                                 <img src={destinationImage} className='destinationImage'/>
                                 <div className="travelerDetails">
                                     <div className="travelerPicture">

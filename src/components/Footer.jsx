@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 // importing images
 import Logo from '../assets/logo.jpg'
@@ -9,12 +9,21 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import { AiFillYoutube } from "react-icons/ai";
 import { FaPinterestP } from "react-icons/fa";
 
+// importing AOS
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+
 const Footer = () => {
+  // useEffect to set animation duration
+  useEffect(()=>{
+   Aos.init({duration: 2000})
+  }, [])
+
   return (
     <div className='footer'>
 
        <div className="sectionContainer container grid">
-         <div className="gridOne">
+         <div data-aos='fade-up' data-aos-duration='2500' className="gridOne">
             <div className="logoDiv">
                 <img src={Logo} className='Logo'/>
             </div>
@@ -28,7 +37,7 @@ const Footer = () => {
          </div>
 
         
-         <div className="footerLinks">
+         <div data-aos='fade-up' data-aos-duration='2500' className="footerLinks">
             <span className="linkTitle">Information</span>
             <li> <a href="">Home</a> </li>
             <li> <a href="">Explore</a> </li>
@@ -39,7 +48,7 @@ const Footer = () => {
          </div>
 
 
-         <div className="footerLinks">
+         <div data-aos='fade-up' data-aos-duration='2500' className="footerLinks">
             <span className="linkTitle">Quick Guide</span>
             <li> <a href="">FAQ</a> </li>
             <li> <a href="">How to</a> </li>
@@ -50,7 +59,7 @@ const Footer = () => {
          </div>
 
 
-         <div className="footerLinks">
+         <div data-aos='fade-up' data-aos-duration='2500' className="footerLinks">
             <span className="linkTitle">Quick Guide</span>
             <li> <a href="">Chauffeur</a> </li>
             <li> <a href="">Our partners</a> </li>
